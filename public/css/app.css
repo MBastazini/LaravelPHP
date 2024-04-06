@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#navbar{
+    width: 100vw;
+    display: flex;
+    height: 80px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: antiquewhite;
+}
+img{
+    height: 70px;
+}
+section{
+    flex: 1;
+    padding: 30px;
+}
+#footer{
+    height: 50px;
+    background-color: burlywood;
+}

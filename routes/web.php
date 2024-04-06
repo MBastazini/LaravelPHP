@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/sobre', function () {
@@ -30,3 +30,18 @@ Route::get('/contato/{nome}', function (string $nome = 'NAP') {
 });
 
 Route::post('/contato', ['uses' => 'App\Http\Controllers\ContatoController@index']);
+
+Route::get('/paginas/{id}', function (int $id = 1) {    
+    if($id == 1){
+        return view('paginas.pagina1');
+    } else if($id == 2){
+        return view('paginas.pagina2');
+    } else if($id == 3){
+        return view('paginas.pagina3');
+    } else {
+        return view('paginas.pagina404');
+    }
+
+});
+
+Route::post('/calcular', ['uses' => 'App\Http\Controllers\ImcController@calcular']);

@@ -1,10 +1,21 @@
-<h2>Esta é a visão contatos</h2>
+@extends('layout.site')
 
-@foreach ($contatos as $contato)
-    <p>{{ $contato['nome'] }}</p>
-    <p>{{ $contato['cel'] }}</p>
-@endforeach
 
-@for($a = 0; $a < 2; $a++)
-    <p>3 é menor que 2</p>
-@endfor
+
+@section('titulo', 'Contatos')
+
+@section('conteudo')
+<section>
+    <h1 class="text-2xl font-bold text-blue-500">Contatos</h1>
+        <div class="mt-4">
+            @foreach ($contatos as $contato)
+                <div class="bg-gray-200 p-4 mb-4 border border-gray-400 rounded shadow-md">
+                    <p class="text-gray-700 text-lg">{{ $contato->tema }}</p>
+                    <p class="text-gray-700">{{ $contato->titulo }}</p>
+                </div>
+            @endforeach
+        </div>
+</section>
+    
+
+@endsection

@@ -9,8 +9,10 @@ class ContatoController extends Controller
     public function index()
     {
         $contatos = [
-            ["nome" => "Maria", "cel" => "123456789"],
-            ["nome" => "Pedro", "cel" => "987654321"],
+            (object)[ "tema" =>"Interface acessivel", "titulo" =>
+            "App mobile com direitos da pessoa deficiente"],
+            (object)["tema"=>"Pedofilia", "titulo" => "App mobile
+            com orientações gerais aos pais" ]
         ];
         return view("contato.index", compact("contatos"));
     }
