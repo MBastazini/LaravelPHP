@@ -33,10 +33,15 @@
             background-color: burlywood;
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
 </head>
 <body>
-    <div id="navbar">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
 
+    <div id="navbar">
+        
         <a href='/'><img src="<?php echo e(asset('img/abacate.png')); ?>" alt="Logo da empresa"></a>
 
         <div>
@@ -45,3 +50,6 @@
             <a href="/paginas/3">pagina 3</a>
         </div>
     </div>
+
+
+    
