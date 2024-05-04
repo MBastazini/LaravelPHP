@@ -14,12 +14,51 @@ class CursoController extends Controller
     }
 
     public function adicionar(){
-        return view('addmin.cursos.adicionar');
+        return view('admin.cursos.adicionar');
     }
 
-    public function salvar(Request $req){
-
-        return "Salvar";
+    public function salvar(Request $req)
+    {
+        $dados = $req->all();
+        if(isset($dados['publicado'])){
+            $dados['publicado'] = true;
+        }
+        else{
+            $dados['publicado'] = false;
+        }
+        if($req->hasFile('arquivo')){
+            $imagem = $req->file('arquivo');
+            $num = rand(1111,9999);
+            $dir = "img/cursos/";
+            $ex = $imagem->guessClientExtension();
+            $nomeImagem = "imagem_".$num.".".$ex;
+            $imagem->move($dir,$nomeImagem);
+            $dados['imagem'] = $dir."/".$nomeImagem;
+        }
+        Curso::create($dados);
+        return redirect()->route('admin.cursos');
+    }
+    
+    public function atualizar(Request $req, $id)
+    {
+        $dados = $req->all();
+        if(isset($dados['publicado'])){
+            $dados['publicado'] = true;
+        }
+        else{
+            $dados['publicado'] = false;
+        }
+        if($req->hasFile('arquivo')){
+            $imagem = $req->file('arquivo');
+            $num = rand(1111,9999);
+            $dir = "img/cursos/";
+            $ex = $imagem->guessClientExtension();
+            $nomeImagem = "imagem_".$num.".".$ex;
+            $imagem->move($dir,$nomeImagem);
+            $dados['imagem'] = $dir."/".$nomeImagem;
+        }
+        Curso::find($id)->update($dados);
+        return redirect()->route('admin.cursos');
     }
 
     public function editar($id){
