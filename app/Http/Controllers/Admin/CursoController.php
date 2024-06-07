@@ -26,6 +26,7 @@ class CursoController extends Controller
         else{
             $dados['publicado'] = false;
         }
+        
         if($req->hasFile('arquivo')){
             $imagem = $req->file('arquivo');
             $num = rand(1111,9999);

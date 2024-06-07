@@ -53,13 +53,13 @@
 
     <div id="navbar">
         
-        <a href='/'><img src="<?php echo e(asset('img/abacate.png')); ?>" alt="Logo da empresa"></a>
+        <a href='./'><img src="<?php echo e(asset('img/abacate.png')); ?>" alt="Logo da empresa"></a>
 
         <div id="cabecalho">
-            <a href="/paginas/1">Pagina 1</a>
-            <a href="/paginas/2">Pagina 2</a>
-            <a href="/paginas/3">Pagina 3</a>
-            <a href='/admin/cursos'>ADMIN - Tela de cursos</a>
+            <a href="./1">Pagina 1</a>
+            <a href="./2">Pagina 2</a>
+            <a href="./3">Pagina 3</a>
+            <a href='../admin/cursos'>ADMIN - Tela de cursos</a>
         </div>
     </div>
 

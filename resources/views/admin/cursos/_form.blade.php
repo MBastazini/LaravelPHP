@@ -8,7 +8,7 @@
     <label>Descrição</label>
 </div>
 <div class="input-field">
-    <input type="text" name="valor" value="{{isset($linha->valor) ? $linha->valor : ''}}">
+    <input type="number" name="valor" value="{{ isset($linha->valor) ? number_format($linha->valor, 2, '.', '') : '' }}" step="0.01">
     <label>Valor</label>
 </div>
 <div class="file-field input-field">

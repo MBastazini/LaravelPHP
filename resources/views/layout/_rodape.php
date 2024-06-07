@@ -1,5 +1,5 @@
 <div id="footer">
-    <h1>GAYEST COMPANY SOFTWARE</h1>
+    <h1>GCOMPANY SOFTWARE</h1>
 </div>
 
 </body>
