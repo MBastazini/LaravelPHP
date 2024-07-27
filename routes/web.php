@@ -46,6 +46,7 @@ Route::get('/paginas/{id}', function (int $id = 1) {
 
 Route::post('/calcular', ['uses' => 'App\Http\Controllers\ImcController@calcular']);
 
+Route::group(['middleware' => 'auth'], function() {
 Route::get('/admin/cursos',
 ['as' =>'admin.cursos',
 'uses'=>'App\Http\Controllers\Admin\CursoController@index']);
@@ -69,3 +70,14 @@ Route::put('/admin/cursos/atualizar/{id}',
 Route::get('/admin/cursos/excluir/{id}',
 ['as' =>'admin.cursos.excluir',
 'uses'=>'App\Http\Controllers\Admin\CursoController@excluir']);
+});
+
+//Login
+Route::get('/login', ['as' => 'site.login',
+'uses'=>'App\Http\Controllers\Site\JorgeAmado@index']);
+
+Route::post('/login/entrar',['as'=>'site.login.entrar',
+'uses'=>'App\Http\Controllers\Site\JorgeAmado@entrar']);
+
+Route::get('/login/sair',['as'=>'site.login.sair',
+'uses'=>'App\Http\Controllers\Site\JorgeAmado@sair']);

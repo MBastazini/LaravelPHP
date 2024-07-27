@@ -1,5 +1,8 @@
 <html>
 <head>
+    
+    <link href="../css/tailwind.css" rel="stylesheet">
+
     <title><?php echo $__env->yieldContent('titulo'); ?></title>
     <style>
         *{
@@ -11,6 +14,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         #navbar{
@@ -56,10 +60,19 @@
         <a href='./'><img src="<?php echo e(asset('img/abacate.png')); ?>" alt="Logo da empresa"></a>
 
         <div id="cabecalho">
-            <a href="./1">Pagina 1</a>
-            <a href="./2">Pagina 2</a>
-            <a href="./3">Pagina 3</a>
-            <a href='../admin/cursos'>ADMIN - Tela de cursos</a>
+            <a href="{{route('paginas.pagina1')}}">Pagina 1</a>
+            <a href="{{route('paginas.pagina2')}}">Pagina 2</a>
+            <a href="{{route('paginas.pagina3')}}">Pagina 3</a>
+
+            @if(Auth::guest())
+                <a href="{{route('site.login')}}">Login</a>
+            @else
+                <a href="{{route('admin.cursos')}}">Cursos</a>
+
+                <a href="#">{{Auth::user()->name}}</a>
+                <a href="{{ route('site.login.sair') }}">Sair</a>
+            @endif
+            
         </div>
     </div>
 
