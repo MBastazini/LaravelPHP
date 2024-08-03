@@ -60,18 +60,17 @@
         <a href='./'><img src="<?php echo e(asset('img/abacate.png')); ?>" alt="Logo da empresa"></a>
 
         <div id="cabecalho">
-            <a href="{{route('paginas.pagina1')}}">Pagina 1</a>
-            <a href="{{route('paginas.pagina2')}}">Pagina 2</a>
-            <a href="{{route('paginas.pagina3')}}">Pagina 3</a>
+            <a href="/paginas/pagina1">Pagina 1</a>
+            <a href="/paginas/pagina2">Pagina 2</a>
+            <a href="/paginas/pagina3">Pagina 3</a>
+            <?php if(Auth::guest()): ?>
+                <a href="<?php echo e(route('site.login')); ?>">Login</a>
+            <?php else: ?>
+                <a href="<?php echo e(route('admin.cursos')); ?>">Cursos</a>
 
-            @if(Auth::guest())
-                <a href="{{route('site.login')}}">Login</a>
-            @else
-                <a href="{{route('admin.cursos')}}">Cursos</a>
-
-                <a href="#">{{Auth::user()->name}}</a>
-                <a href="{{ route('site.login.sair') }}">Sair</a>
-            @endif
+                <a href="#"><?php echo e(Auth::user()->name); ?></a>
+                <a href="<?php echo e(route('site.login.sair')); ?>">Sair</a>
+            <?php endif; ?>
             
         </div>
     </div>

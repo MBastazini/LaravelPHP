@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class JorgeAmado extends Controller
+class HandleLoginController extends Controller
 {
     public function index() { // a visão que pede usuário e senha
         return view('login.index');
@@ -14,10 +14,15 @@ class JorgeAmado extends Controller
 
     public function entrar(Request $req) {
         $dados = $req->all();
-        if(Auth::attempt([ 'email'=>$dados['email'],'password'=>$dados['senha'] ])) {
+        $dados['response'] = Auth::attempt(['email'=>$dados['email'],'password'=>$dados['senha'] ]);
+        if($dados['response']) {
             // redireciona para a home, mas agora, logado !
-            return redirect()->route('home');
+            return redirect()->route('site.home');
         } else { // pede usuario e senha novamente
+            if($dados['response'] == null)
+            {
+                $dados['response'] = 'Usuário ou senha inválidos';
+            }
             return redirect()->route('site.login');
         }
     }
